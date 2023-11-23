@@ -1,5 +1,7 @@
 import '../style/Login.css'
 
+import { Link } from 'react-router-dom';
+
 export default function Login(){
     return(
     <form action="">
@@ -9,5 +11,9 @@ export default function Login(){
     <label htmlFor="senha">Senha</label>
     <input type="text" name='senha' />
     <button>LOGIN</button>
-   </form>)
+    <div>
+        <p>Não tem login? <Link to="http://localhost:5174/register">Registre-se</Link></p>
+    </div>
+   </form>
+   )
 }
