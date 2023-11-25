@@ -1,7 +1,10 @@
 import '../style/Assessments.css'
-
+import Carousel from '../Caroseu/carosel'
 export default function Assessments(){
     return(
-        <h1>Avaliações a ser feita</h1>
+        <div>
+            <Carousel />
+         </div>
+         
     )
 }
