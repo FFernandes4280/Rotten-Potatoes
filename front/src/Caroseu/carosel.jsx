@@ -10,13 +10,13 @@ const Carousel = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 8,
-    slidesToScroll: 2,
+    slidesToScroll: 10,
   };
 
   const slideContents = Array.from({ length: 10 }, (_, index) => (
     <div key={index}>
       <img
-        src={`https://www.ubuy.com.br/productimg/?image=aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9zZW8vRnJlc2gtU2xpY2luZy1Ub21hdG8tRWFjaF9hMWU4ZTQ0YS0yYjgyLTQ4YWItOWMwOS1iNjg0MjBmNjk1NGMuMDRmNmUwZTg3ODA3ZmM1NDU3ZjU3ZTNlYzA3NzAwNjEuanBlZw.jpg`}
+        src={`https://www.intoxianime.com/wp-content/uploads/2023/08/F4M7DiMbgAAuHUV.jpg`}
         alt={`Slide ${index + 1}`}
       />
     </div>

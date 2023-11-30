@@ -1,4 +1,17 @@
 div{
-    width: 100%;
-    height: 300px;
+    align-items: normal;
+    width:90rem;
+    height:auto;
+}
+.barrasup{
+    width: 90rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+img{
+    width: 4rem;
+}
+button{
+    height: 4rem;
 }
