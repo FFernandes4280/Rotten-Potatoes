@@ -1,0 +1,13 @@
+
+.barrasup{
+    width: 90rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+img{
+    width: 4rem;
+}
+button{
+    height: 4rem;
+}

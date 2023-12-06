@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom/client'
 import {createBrowserRouter, RouterProvider} from  'react-router-dom'
 import Login from './login/login.jsx'
 import Register from './register/register.jsx'
-import Home from './home/home.jsx'
+import Home from './home/Home.jsx'
 import Assessments from './assessments/assessments.jsx'
 import Description from './description/description.jsx'
 import './index.css'
+import Avaliation from './avaliation/Avaliation.jsx'
 
 const router =  createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router =  createBrowserRouter([
   {
     path:'/description',
     element: <Description/>
+  },
+  {
+    path:'/avaliation',
+    element: <Avaliation/>
   }
 ]);
 
