@@ -1,13 +1,70 @@
-
-.barrasup{
+.barrasup {
+    margin: 1rem;
     width: 90rem;
     display: flex;
     justify-content: space-between;
 }
 
-img{
+.barrasup img {
     width: 4rem;
 }
-button{
+
+.barrasup button {
     height: 4rem;
+}
+
+.cartaz {
+    width: 90rem;
+    height: 40rem;
+    height: 30rem;
+    display: flex;
+    justify-content: center;
+}
+
+.cartaz img {
+    border-radius: 10px;
+    width: 16rem;
+    height: 25rem;
+    max-width: none;
+    max-height: none;
+
+}
+
+.Avaliacao{
+    margin-left: 23rem;
+    margin-right: 23rem;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.Avaliacao img{
+    border-radius: 5px;
+    width: 10rem;
+    max-width: none;
+}
+.Sinopse{
+    margin: 1rem;
+    text-align: center;
+    width: 90rem;
+    height: 20rem;
+    
+}
+.Sinopse p {
+    height: 80%;
+    border-radius: 15px;
+    font-size:x-large;
+    background-color: dimgray;
+}
+
+.trailer{
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+iframe{
+    height: 30rem;
+    width: 53rem;
 }
