@@ -2,16 +2,18 @@
 
 /* Ajusta o tamanho do carrossel */
 .slick-slider {
-    width: 30rem;
+    width: auto;
     height: auto; /* Defina a largura desejada, por exemplo, 80% */
     margin: 20px; /* Centraliza o carrossel horizontalmente */
   }
   
   /* Opcional: Ajusta o tamanho das imagens nos slides */
   .slick-slider img {
-    width: 18rem; /* Faz com que as imagens ocupem 100% da largura do slide */
-    height: 14.4rem;
+    width: auto; /* Faz com que as imagens ocupem 100% da largura do slide */
+    height: 12.5rem;
     margin: 2rem;
+    max-width: none;
+    max-height: none;
     max-width: auto;
     max-height: auto; /* Mantém a proporção original da imagem */
   }

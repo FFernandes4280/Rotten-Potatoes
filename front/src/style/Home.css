@@ -1,4 +1,3 @@
-
 .barrasup{
     width: 90rem;
     display: flex;
@@ -10,4 +9,8 @@ img{
 }
 button{
     height: 4rem;
+}
+.carosel{
+    width: 90rem;
+    height: auto;
 }

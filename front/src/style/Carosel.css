@@ -2,7 +2,7 @@
 
 /* Ajusta o tamanho do carrossel */
 .slick-slider {
-    width: 100%;
+    width: auto;
     height: auto; /* Defina a largura desejada, por exemplo, 80% */
     margin: 20px; /* Centraliza o carrossel horizontalmente */
   }

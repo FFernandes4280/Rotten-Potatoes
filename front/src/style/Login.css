@@ -1,11 +1,29 @@
 img{
-    max-width: 10%;
-  
+    width: 7rem;
+    max-height: none;
+    max-width: none;
   }
   
   form{
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+  body{
+    margin-top: 14rem;
+  }
+
+  button{
+    margin-top: 2rem;
+  }
+
+  label{
+    margin-top: 0.8rem;
+  }
+  
+  input{
+    width: 18rem;
   }
