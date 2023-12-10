@@ -1,18 +1,3 @@
-.barrasup {
-    margin: 1rem;
-    width: 90rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.barrasup img {
-    width: 4rem;
-}
-
-.barrasup button {
-    height: 4rem;
-}
-
 .cartaz {
     width: 90rem;
     height: 40rem;

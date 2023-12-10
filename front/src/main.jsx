@@ -8,8 +8,27 @@ import Assessments from './assessments/Assessments.jsx'
 import Description from './description/Description.jsx'
 import './index.css'
 import Avaliation from './avaliation/Avaliation.jsx'
+import Header from './App.jsx'
 
 const router =  createBrowserRouter([
+  {
+    path:'/',
+    element: <Header/>,
+    children:[
+      {
+        path:'/',
+        element: <Home/>
+      },
+      {
+        path:'assessments',
+        element: <Assessments/>
+      },
+      {
+        path:'description',
+        element: <Description/>
+      }
+    ]
+  },
   {
     path:'/login',
     element: <Login/>
@@ -17,18 +36,6 @@ const router =  createBrowserRouter([
   {
     path:'/register',
     element: <Register/>
-  },
-  {
-    path:'/home',
-    element: <Home/>
-  },
-  {
-    path:'/assessments',
-    element: <Assessments/>
-  },
-  {
-    path:'/description',
-    element: <Description/>
   },
   {
     path:'/avaliation',

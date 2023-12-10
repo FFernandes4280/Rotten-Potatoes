@@ -5,7 +5,10 @@ export default function Avaliation(){
         <>
         <form action="">
             <div className='corpoava'>
+                <div className='postertitulo'>
                 <img src="https://www.intoxianime.com/wp-content/uploads/2023/08/F4M7DiMbgAAuHUV.jpg" alt="Poster" />
+                <h2></h2>
+                </div>
                 <div className='avaliação'>
                     <label htmlFor="avaliação"></label>
                     <textarea name="textava" id="avali" cols="30" rows="10"></textarea>

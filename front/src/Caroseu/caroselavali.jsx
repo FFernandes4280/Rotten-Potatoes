@@ -17,7 +17,7 @@ const VerticalCarousel = () => {
 
   const items = Array.from({ length: 10 }, (_, index) => (
     <li key={index}>
-      <h3>Item {index + 1}</h3>
+      <p>Item {index + 1}</p>
     </li>
   ));
 

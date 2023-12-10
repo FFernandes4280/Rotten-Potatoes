@@ -3,8 +3,18 @@
 /* Ajusta o tamanho do carrossel */
 .caroselhorizontal {
     width: 75rem;
-    height: 100%; /* Defina a largura desejada, por exemplo, 80% */
-    margin: 20px; /* Centraliza o carrossel horizontalmente */
+    height: 35rem; /* Defina a largura desejada, por exemplo, 80% */
+    margin-left: 1rem; /* Centraliza o carrossel horizontalmente */
   }
   
   /* Opcional: Ajusta o tamanho das imagens nos slides */
+.caroselhorizontal .slick-slider{
+  height: 35rem;
+
+}
+.caroselhorizontal .slick-list{
+  height: 35rem !important;
+}
+.caroselhorizontal p{
+  font-size:xx-large;
+}
