@@ -1,13 +1,26 @@
-
-.barrasup{
-    width: 90rem;
+.corpoava{
     display: flex;
-    justify-content: space-between;
+    align-items: center;
 }
-
-img{
-    width: 4rem;
+.corpoava img{
+    width: 14rem;
+    height: 21rem;
 }
-button{
-    height: 4rem;
+.corpoava textarea{
+    margin-left: 2rem;
+    height: 15rem;
+    width:  30rem;
+}
+.corpoava button{
+    margin-top: 1rem;
+    align-self: end;
+}
+.corpoava select{
+    align-self: start;
+    font-size: medium;
+    margin-left: 2rem;
+}
+.avaliação{
+    display: flex;
+    flex-direction: column;
 }

@@ -22,7 +22,7 @@ const VerticalCarousel = () => {
   ));
 
   return (
-    <div className="custom-carousel"> {/* Adiciona uma classe ao contêiner do carrossel */}
+    <div className="caroselhorizontal"> {/* Adiciona uma classe ao contêiner do carrossel */}
       <Slider {...settings}>
         {items}
       </Slider>

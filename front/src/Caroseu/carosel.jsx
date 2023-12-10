@@ -9,7 +9,7 @@ const Carousel = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 8,
+    slidesToShow: 6,
     slidesToScroll: 10,
   };
 
@@ -23,7 +23,7 @@ const Carousel = () => {
   ));
 
   return (
-    <div className="custom-carousel"> {/* Adiciona uma classe ao contêiner do carrossel */}
+    <div className="caroselarq"> {/* Adiciona uma classe ao contêiner do carrossel */}
       <Slider {...settings}>
         {slideContents}
       </Slider>
