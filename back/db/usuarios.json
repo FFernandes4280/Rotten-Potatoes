@@ -1,0 +1,12 @@
+[
+    {
+      "id": 1,
+      "email": "d2022002088@unifei.edu.br",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "email": "jaum2@teste.com.br",
+      "password": "$2b$10$fFXploFtrqZ.8BraesugueglhktE6kW0/1baXHGPQdu0dgmsMtIc."
+    }
+  ]
