@@ -4,12 +4,34 @@ import {createBrowserRouter, RouterProvider} from  'react-router-dom'
 import Login from './login/login.jsx'
 import Register from './register/register.jsx'
 import Home from './home/Home.jsx'
-import Assessments from './assessments/assessments.jsx'
-import Description from './description/description.jsx'
+import Assessments from './assessments/Assessments.jsx'
+import Description from './description/Description.jsx'
+import Perfil from './perfil/perfil.jsx'
+import Perfiledit from './perfil/editarperfil.jsx'
 import './index.css'
 import Avaliation from './avaliation/Avaliation.jsx'
+import Header from './App.jsx'
+
 
 const router =  createBrowserRouter([
+  {
+    path:'/',
+    element: <Header/>,
+    children:[
+      {
+        path:'/',
+        element: <Home/>
+      },
+      {
+        path:'assessments',
+        element: <Assessments/>
+      },
+      {
+        path:'description',
+        element: <Description/>
+      }
+    ]
+  },
   {
     path:'/login',
     element: <Login/>
@@ -19,20 +41,16 @@ const router =  createBrowserRouter([
     element: <Register/>
   },
   {
-    path:'/home',
-    element: <Home/>
-  },
-  {
-    path:'/assessments',
-    element: <Assessments/>
-  },
-  {
-    path:'/description',
-    element: <Description/>
-  },
-  {
     path:'/avaliation',
     element: <Avaliation/>
+  },
+  {
+    path:'/perfil',
+    element: <Perfil/>
+  },
+  {
+    path:'/perfiledit',
+    element: <Perfiledit/>
   }
 ]);
 

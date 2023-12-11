@@ -17,12 +17,12 @@ const VerticalCarousel = () => {
 
   const items = Array.from({ length: 10 }, (_, index) => (
     <li key={index}>
-      <h3>Item {index + 1}</h3>
+      <p>Item {index + 1}</p>
     </li>
   ));
 
   return (
-    <div className="custom-carousel"> {/* Adiciona uma classe ao contêiner do carrossel */}
+    <div className="caroselhorizontal"> {/* Adiciona uma classe ao contêiner do carrossel */}
       <Slider {...settings}>
         {items}
       </Slider>

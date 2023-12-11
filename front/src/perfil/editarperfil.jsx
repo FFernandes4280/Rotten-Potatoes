@@ -1,21 +1,23 @@
 import '../style/Login.css'
 import logo from '../assets/tomato.png'
 
-export default function Register(){
+import { Link } from 'react-router-dom';
+
+export default function editarperfil(){
     return(
     <form action="">
-        <fieldset>
+         <fieldset>
             <div>
                 <img src={logo} alt="Logo" />
             </div>
+            <label htmlFor="usuario">Usuario</label>
+                <input type="text" name='usuario' />
             <label htmlFor="email">Email</label>
                 <input type="text" name='email' />
             <label htmlFor="senha">Senha</label>
-                <input type="text" name='senha' />
-            <label htmlFor="conf_senha">Confirmar Senha</label>
-                <input type="password" name='conf_senha' />
-            
+                <input type="password" name='senha' />
             <button>LOGIN</button>
         </fieldset>
-   </form>)
+   </form>
+   )
 }

@@ -3,24 +3,24 @@ import '../style/Description.css'
 export default function Description(){
     return(
      <>
-       <div className='barrasup'>
-            <img src="https://www.ubuy.com.br/productimg/?image=aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9zZW8vRnJlc2gtU2xpY2luZy1Ub21hdG8tRWFjaF9hMWU4ZTQ0YS0yYjgyLTQ4YWItOWMwOS1iNjg0MjBmNjk1NGMuMDRmNmUwZTg3ODA3ZmM1NDU3ZjU3ZTNlYzA3NzAwNjEuanBlZw.jpg" alt="Logo" />
-            <button>LOGIN</button>
-        </div>
         <div>
-            <div className='cartaz'>
-                <img src="https://www.intoxianime.com/wp-content/uploads/2023/08/F4M7DiMbgAAuHUV.jpg" alt="Poster" />
-            </div>
-            <div className='Avaliacao'>
-                <img src="https://pixel.cuboup.com/wp-content/uploads/edd/2022/05/Icone-Joinha-Like.jpg" alt="avaliaçãocritico" />
-                <img src="https://pixel.cuboup.com/wp-content/uploads/edd/2022/05/Icone-Joinha-Like.jpg" alt="publico" />
-            </div>
-            <div className='Sinopse'>
-                <h2>Sinopse:</h2>
-                <p>A maga élfica Frieren e seus bravos companheiros aventureiros derrotaram o Rei Demônio e trouxeram paz à terra. 
-                    Com a grande luta terminada, todos eles seguem caminhos separados para viver uma vida tranquila. 
-                    Mas como uma elfo, a quase imortal Frieren durará muito mais que o resto de seu antigo bando.
-Como ela aceitará a mortalidade de seus amigos? Como ela pode encontrar satisfação em sua própria vida e pode aprender a entender o que a vida significa para os humanos ao seu redor? Frieren inicia uma nova jornada para encontrar a resposta.</p>
+            <div className='dados'>
+                <div className='fundo'>
+                    <div className='cartaz'>
+                        <img src="https://www.intoxianime.com/wp-content/uploads/2023/08/F4M7DiMbgAAuHUV.jpg" alt="Poster" />
+                        <h2>Sousou no frierem</h2>
+                    </div>
+                    <div className='Avaliacao'>
+                        <h3>10</h3>
+                    </div>
+                </div>
+                <div className='Sinopse'>
+                    <h2>Sinopse:</h2>
+                    <p>A maga élfica Frieren e seus bravos companheiros aventureiros derrotaram o Rei Demônio e trouxeram paz à terra. 
+                        Com a grande luta terminada, todos eles seguem caminhos separados para viver uma vida tranquila. 
+                        Mas como uma elfo, a quase imortal Frieren durará muito mais que o resto de seu antigo bando.
+                        Como ela aceitará a mortalidade de seus amigos? Como ela pode encontrar satisfação em sua própria vida e pode aprender a entender o que a vida significa para os humanos ao seu redor? Frieren inicia uma nova jornada para encontrar a resposta.</p>
+                </div>
             </div>
             <div className='trailer'>
                 <h1>Trailer</h1>

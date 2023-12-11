@@ -3,18 +3,31 @@ import '../style/Avaliation.css'
 export default function Avaliation(){
     return(
         <>
-        <div className='barrasup'>
-            <img src="https://www.ubuy.com.br/productimg/?image=aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9zZW8vRnJlc2gtU2xpY2luZy1Ub21hdG8tRWFjaF9hMWU4ZTQ0YS0yYjgyLTQ4YWItOWMwOS1iNjg0MjBmNjk1NGMuMDRmNmUwZTg3ODA3ZmM1NDU3ZjU3ZTNlYzA3NzAwNjEuanBlZw.jpg" alt="Logo" />
-            <button>LOGIN</button>
-        </div>
         <form action="">
-            <div>
+            <div className='corpoava'>
+                <div className='postertitulo'>
                 <img src="https://www.intoxianime.com/wp-content/uploads/2023/08/F4M7DiMbgAAuHUV.jpg" alt="Poster" />
-                <label htmlFor="avaliação"></label>
-                <input type="text" name='avaliação'/>
-            </div>
-            <div>
-                <button>AVALIAR</button>
+                <h2>Sousou no frierem</h2>
+                </div>
+                <div className='avaliação'>
+                    <label htmlFor="avaliação"></label>
+                    <textarea name="textava" id="avali" cols="30" rows="10"></textarea>
+                    <div className='divbot'>
+                        <select name="Nota" id="nota">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <button>AVALIAR</button>
+                    </div>
+                </div>
             </div>
         </form>
         </>
