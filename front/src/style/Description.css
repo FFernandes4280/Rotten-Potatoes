@@ -45,8 +45,20 @@ body{background-color: rgb(40, 39, 39);}
     justify-content: center;
 }
 .Avaliacao h3{
+    padding: auto;
+    color: white;
+    background-color: rgb(33, 32, 32);
+    width: 8rem;
+    height: 8rem;
+    text-align: center;
+    border-radius: 15px;
     font-size: 6rem;
     text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+.Avaliacao a{
+    color: white;
+    text-decoration: none;
 }
 .Sinopse{
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);

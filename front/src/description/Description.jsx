@@ -1,4 +1,5 @@
 import '../style/Description.css'
+import { Link } from 'react-router-dom';
 
 export default function Description(){
     return(
@@ -11,7 +12,7 @@ export default function Description(){
                         <h2>Sousou no frierem</h2>
                     </div>
                     <div className='Avaliacao'>
-                        <h3>10</h3>
+                        <h3><Link to="http://localhost:5173/assessments">10</Link></h3>
                     </div>
                 </div>
                 <div className='Sinopse'>
