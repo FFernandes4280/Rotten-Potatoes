@@ -103,32 +103,18 @@ function getMoviePoster(apiKey, movieTitle) {
         });
 }
 
-app.get('NÃO SEI AINDA WHERE', async (req, res) => {
-    try {
-        const genre = req.query.genre;
-        let apiUrl;
-
-        if (genre === 'rand') {
-            // Se o gênero for 'rand', retorna qualquer filme aleatório
-            apiUrl = 'http://www.omdbapi.com/?apikey=YOUR_OMDB_API_KEY&type=movie';
-        } else {
-            // Caso contrário, retorna um filme aleatório do gênero especificado
-            const response = await axios.get(`http://www.omdbapi.com/?apikey=YOUR_OMDB_API_KEY&type=movie&genre=${genre}`);
-            const randomIndex = Math.floor(Math.random() * response.data.Search.length);
-            const imdbID = response.data.Search[randomIndex].imdbID;
-            apiUrl = `http://www.omdbapi.com/?apikey=YOUR_OMDB_API_KEY&i=${imdbID}`;
-        }
-
-        const movieData = await axios.get(apiUrl);
-        const posterUrl = movieData.data.Poster;
-
-        res.json({ posterUrl });
-    } catch (error) {
-        console.error('Erro:', error);
-        res.status(500).json({ error: 'Erro ao obter o cartaz do filme.' });
+async function RandomMovie(genre) {
+    if (genre === 'rand') {
+      // Se o gênero for 'rand', retorna qualquer filme aleatório
+      return 'http://www.omdbapi.com/?apikey=YOUR_OMDB_API_KEY&type=movie';
+    } else {
+      // Caso contrário, retorna um filme aleatório do gênero especificado
+      const response = await axios.get(`http://www.omdbapi.com/?apikey=YOUR_OMDB_API_KEY&type=movie&genre=${genre}`);
+      const randomIndex = Math.floor(Math.random() * response.data.Search.length);
+      const imdbID = response.data.Search[randomIndex].imdbID;
+      return `http://www.omdbapi.com/?apikey=YOUR_OMDB_API_KEY&i=${imdbID}`;
     }
-});
-
+  }
 
 //FUNÇÃO 2 QUE O CARNEIRO PEDIU
 function getMovieDetails(movieTitle) {
