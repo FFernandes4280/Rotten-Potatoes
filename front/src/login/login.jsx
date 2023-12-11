@@ -8,13 +8,12 @@ export default function Login(){
     <form action="">
          <fieldset>
             <div>
-                
                 <img src={logo} alt="Logo" />
             </div>
             <label htmlFor="email">Email</label>
                 <input type="text" name='email' />
             <label htmlFor="senha">Senha</label>
-                <input type="text" name='senha' />
+                <input type="password" name='senha' />
 
             <button>LOGIN</button>
             <div>

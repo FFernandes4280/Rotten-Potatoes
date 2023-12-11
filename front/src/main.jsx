@@ -6,9 +6,12 @@ import Register from './register/register.jsx'
 import Home from './home/Home.jsx'
 import Assessments from './assessments/Assessments.jsx'
 import Description from './description/Description.jsx'
+import Perfil from './perfil/perfil.jsx'
+import Perfiledit from './perfil/editarperfil.jsx'
 import './index.css'
 import Avaliation from './avaliation/Avaliation.jsx'
 import Header from './App.jsx'
+
 
 const router =  createBrowserRouter([
   {
@@ -40,6 +43,14 @@ const router =  createBrowserRouter([
   {
     path:'/avaliation',
     element: <Avaliation/>
+  },
+  {
+    path:'/perfil',
+    element: <Perfil/>
+  },
+  {
+    path:'/perfiledit',
+    element: <Perfiledit/>
   }
 ]);
 

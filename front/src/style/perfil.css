@@ -1,0 +1,14 @@
+
+.perfil fieldset{
+    margin-top: 0;
+    width: 50%;
+}
+.perfil{
+    margin-top: 12rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: xx-large;
+}
