@@ -3,7 +3,6 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const fs = require('fs');
-
 const path = require('path');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -72,7 +71,7 @@ app.post('/register', async (req, res)=>{
         if(users.email === email){
             //usuario já existe. Impossivel criar outro
             //Retornando o erro 409 para indicar conflito
-            return res.status(409).send(`Usuario com email ${email} já existe.`);
+            return res.status(409).send(`Email ${email} já está cadastrado.`);
         }   
     }
     //Deu certo. Vamos colocar o usuário no "banco"
@@ -84,10 +83,13 @@ app.post('/register', async (req, res)=>{
     const passwordCrypt = await bcrypt.hash(password,salt);
 
     //Criacao do user
+    const User = require('./model/User');
     const user = new User(id, email, passwordCrypt);
 
     //Salva user no "banco"
     usuariosCadastrados.push(user);
     fs.writeFileSync(jsonPath,JSON.stringify(usuariosCadastrados,null,2));
-    res.send(`Tudo certo usuario criado com sucesso.`);
+    res.send(
+        `Parabéns, conta criada com sucesso.`
+        );
 });
