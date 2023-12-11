@@ -2,8 +2,8 @@
 
 /* Ajusta o tamanho do carrossel */
 .caroselhorizontal {
-    width: 75rem;
-    height: 35rem; /* Defina a largura desejada, por exemplo, 80% */
+    width: 71rem;
+    height: 100%; /* Defina a largura desejada, por exemplo, 80% */
     margin-left: 1rem; /* Centraliza o carrossel horizontalmente */
   }
   
@@ -16,5 +16,9 @@
   height: 35rem !important;
 }
 .caroselhorizontal p{
+  text-align: center;
   font-size:xx-large;
+  background-color: dimgray;
+  border-radius: 15px;
+  margin-top: 1rem;
 }

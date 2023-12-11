@@ -7,23 +7,28 @@ export default function Home(){
             <h2>Filmes</h2>
             <Carousel/>
         </div>
-      
+
         <div className='carosel'>
-        <h2>Filmes</h2>
+        <h2>Filmes de terror</h2>
             <Carousel/>
         </div>
+
         <div className='carosel'>
-        <h2>Filmes</h2>
+        <h2>Filmes de comédia</h2>
             <Carousel/>
         </div>
-        <h2>Filmes</h2>
+
+        
         <div className='carosel'>
+        <h2>Filmes de aventura</h2>
             <Carousel/>
         </div>
+
         <div className='carosel'>
-        <h2>Filmes</h2>
+        <h2>Filmes de ficção científica</h2>
             <Carousel/>
         </div>
+
         </> 
     )
 }
