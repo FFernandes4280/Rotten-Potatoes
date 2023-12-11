@@ -212,6 +212,10 @@ const saveReviews = (reviews) => {
     return average;
   };
 
+  const getReviewsDetails = () => {
+    const reviews = loadReviews();
+    return reviews.map(({ user, title, description }) => ({ user, title, description }));
+  };
 
 
 
