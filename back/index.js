@@ -157,6 +157,66 @@ function getMovieDetails(movieTitle) {
 //         }
 //     });
 
+const addReview = (number,description, user, title)=>{
+    try {
+        
+        const reviews = loadReviews();
+    
+        
+        const newReview = {
+          number,
+          description,
+          user,
+          title,
+        };
+        reviews.push(newReview);
+    
+        
+        saveReviews(reviews);
+    
+        console.log('Review added successfully!');
+      } catch (error) {
+        console.error('Error adding review:', error);
+      }
+};
+
+const loadReviews = () => {
+    try {
+      const file = fs.readFileSync('reviews.json', 'utf-8');
+      return JSON.parse(file);
+    } catch (error) {
+      return [];
+    }
+  };
+
+const saveReviews = (reviews) => {
+    const file = JSON.stringify(reviews, null, 2);
+    fs.writeFileSync('reviews.json', file, 'utf-8');
+  };
+
+  //addReview(1, 'BALDUR GATES GANHAR DE ALAN WAKE É MUITO MEME!', 'Emanuel', 'Titanic');
+
+  const calculateAverageRating = (title) => {
+    const reviews = loadReviews();
+    const ratingsForMovie = reviews
+      .filter((review) => review.title === title)
+      .map((review) => review.number);
+  
+    if (ratingsForMovie.length === 0) {
+      return 0; 
+    }
+  
+    const sum = ratingsForMovie.reduce((total, rating) => total + rating, 0);
+    const average = sum / ratingsForMovie.length;
+  
+    return average;
+  };
+
+
+
+
+
+
 
 app.listen(3000, () => {
     console.log('Servidor na porta 3000');
