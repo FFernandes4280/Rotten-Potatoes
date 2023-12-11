@@ -6,6 +6,8 @@ const fs = require('fs/promises');
 
 const SECRET_KEY = 'BaldurGatesGanharDeALANWAKE2=MEME'; 
 const USERS_FILE = 'usuarios.json';
+const apiKey = '10a61ce6'; //OMBib
+
 
 const handleError = (res, status, message) => {
     console.error(message);
@@ -47,7 +49,127 @@ function embedYouTubeVideo(apiKey, searchTerm) {
         .catch(error => console.error('Erro:', error));
 }
 
+function getMovieInfo(apiKey, movieTitle) {
+    const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(movieTitle)}`;
 
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Verifique se a solicitação foi bem-sucedida
+            if (data.Response === 'True') {
+                // Atribua cada informação a uma variável
+                const title = data.Title;
+                const year = data.Year;
+                const rated = data.Rated;
+                const released = data.Released;
+                const runtime = data.Runtime;
+                const genre = data.Genre;
+                const director = data.Director;
+                const writer = data.Writer;
+                const actors = data.Actors;
+                const plot = data.Plot;
+                const language = data.Language;
+                const country = data.Country;
+                const awards = data.Awards;
+                const poster = data.Poster;
+                const imdbRating = data.imdbRating;
+                const ratings = data.Ratings; // Este é um array de avaliações, você pode processá-lo conforme necessário
+            } else {
+                return res.status(401).send({ error: 'Filme não encontrado. ' });
+            }
+        })
+        .catch(error => console.error('Erro:', error));
+}
+
+function getMoviePoster(apiKey, movieTitle) {
+    
+    const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(movieTitle)}`;
+
+    return fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Verifique se a solicitação foi bem-sucedida
+            if (data.Response === 'True') {
+                // Retorna o URL do poster
+                return data.Poster;
+            } else {
+                console.error('Filme não encontrado');
+                return null; // Retorna nulo se o filme não for encontrado
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            return null; // Retorna nulo em caso de erro
+        });
+}
+
+app.get('NÃO SEI AINDA WHERE', async (req, res) => {
+    try {
+        const genre = req.query.genre;
+        let apiUrl;
+
+        if (genre === 'rand') {
+            // Se o gênero for 'rand', retorna qualquer filme aleatório
+            apiUrl = 'http://www.omdbapi.com/?apikey=YOUR_OMDB_API_KEY&type=movie';
+        } else {
+            // Caso contrário, retorna um filme aleatório do gênero especificado
+            const response = await axios.get(`http://www.omdbapi.com/?apikey=YOUR_OMDB_API_KEY&type=movie&genre=${genre}`);
+            const randomIndex = Math.floor(Math.random() * response.data.Search.length);
+            const imdbID = response.data.Search[randomIndex].imdbID;
+            apiUrl = `http://www.omdbapi.com/?apikey=YOUR_OMDB_API_KEY&i=${imdbID}`;
+        }
+
+        const movieData = await axios.get(apiUrl);
+        const posterUrl = movieData.data.Poster;
+
+        res.json({ posterUrl });
+    } catch (error) {
+        console.error('Erro:', error);
+        res.status(500).json({ error: 'Erro ao obter o cartaz do filme.' });
+    }
+});
+
+
+//FUNÇÃO 2 QUE O CARNEIRO PEDIU
+function getMovieDetails(movieTitle) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            // Obtém informações do filme da API OMDB
+            const omdbUrl = `http://www.omdbapi.com/?apikey=YOUR_OMDB_API_KEY&t=${encodeURIComponent(movieTitle)}`;
+            const omdbResponse = await fetch(omdbUrl);
+            const omdbData = await omdbResponse.json();
+            
+            if (omdbData.Response === 'False') {
+                //Filme não encontrado
+                return res.status(402).send({ error: 'Filme não encontrado' });
+                reject('Filme não encontrado');
+                return;
+            }
+
+            const synopsis = omdbData.Plot;
+
+            // Obtém o ID do vídeo do trailer da API do YouTube
+            const youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${encodeURIComponent(movieTitle)}%20trailer&key=YOUR_YOUTUBE_API_KEY&part=snippet&type=video`;
+            const youtubeResponse = await fetch(youtubeUrl);
+            const youtubeData = await youtubeResponse.json();
+            const trailerVideoId = youtubeData.items[0]?.id.videoId || null;
+
+            resolve({ synopsis, trailerVideoId });
+        } catch (error) {
+            return res.status(454).send({ error: 'Erro ao obter detalhes do filme' });
+            reject('Erro ao obter detalhes do filme');
+        }
+    });
+}
+
+// getMoviePoster(apiKey, movieTitle)
+//     .then(posterUrl => {
+//         if (posterUrl !== null) {
+//             console.log('URL do Poster:', posterUrl);
+//         } else {
+//             console.log('Erro ao obter o poster.');
+//         }
+//     });
 
 
 app.listen(3000, () => {
