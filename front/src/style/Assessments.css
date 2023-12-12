@@ -26,6 +26,10 @@
     margin-bottom: 1rem;
     background-color: rgb(68, 68, 68);
 }
+.lateral a{
+    color: white;
+    text-decoration: none;
+}
 .lateral h3{
     font-size: 8rem;
     text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);

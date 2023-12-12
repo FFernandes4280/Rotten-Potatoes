@@ -1,4 +1,5 @@
 import '../style/perfil.css';
+import { Link } from 'react-router-dom';
 
 export default function Perfil() {
 
@@ -13,7 +14,7 @@ export default function Perfil() {
           <legend>Email:</legend>
           <p>gabriel.carneirog14@gmail.com</p>
         </fieldset>
-        <button>ALTERAR DADOS</button>
+        <Link to="http://localhost:5173/perfiledit"><button>ALTERAR DADOS</button></Link>
       </div>
     </>
   )
