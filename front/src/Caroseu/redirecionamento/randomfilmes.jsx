@@ -1,41 +1,20 @@
-const apiKey = '043fe6a0cc6d215f5b63dc8fb46878b2I';
-const baseUrl = 'https://api.themoviedb.org/3';
+const TMDB_API_KEY = '043fe6a0cc6d215f5b63dc8fb46878b2I'; // Substitua pela sua chave de API do TMDb
+const BASE_URL = 'https://api.themoviedb.org/3';
 
-async function getRandomMoviePosterAndTitle(genre) {
-  let apiUrl = '/discover/movie';
-
-  
-  if (genre !== 'rand') {
-    apiUrl = `/discover/movie?with_genres=${genre}`;
-  }
-
+async function obterFilmesPopulares() {
   try {
-    
-    const response = await axios.get(`${baseUrl}${apiUrl}`, {
-      params: {
-        api_key: apiKey,
-        sort_by: 'popularity.desc', 
-        page: 1, 
-      },
-    });
+    const response = await axios.get(`${BASE_URL}/movie/popular?api_key=${TMDB_API_KEY}&language=en-US&page=1`);
+    const filmes = response.data.results.map(filme => ({
+      poster: `https://image.tmdb.org/t/p/w500${filme.poster_path}`,
+      titulo: filme.original_title,
+    }));
 
-    
-    const randomIndex = Math.floor(Math.random() * response.data.results.length);
-    const randomMovie = response.data.results[randomIndex];
-
-   
-    const posterPath = randomMovie.poster_path;
-    const posterUrl = posterPath ? `https://image.tmdb.org/t/p/w500${posterPath}` : null;
-
-   
-    return {
-      title: randomMovie.title,
-      posterUrl: posterUrl,
-    };
+    return filmes;
   } catch (error) {
-    console.error('Erro ao obter filme aleatório:', error);
-    return null;
+    console.error('Erro ao obter filmes populares:', error.message);
+    throw error;
   }
+}
 }
 
 // // Exemplo de uso:
