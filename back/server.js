@@ -15,24 +15,15 @@ app.listen(3003, () => {
     console.log('Servidor na porta 3003');
 });
 
-// app.post('/assessments', (req, res)=>{
-//     res.send({token: '1234'});
-// });
+app.post('/avaliation', (req, res)=>{
+    res.send({token: '1234'});
+});
 
-// app.post('/evaluate', (req, res)=>{
-//     res.send({token: '1234'});
-// });
-
-// app.post('/description', (req, res)=>{
-//     res.send({token: '1234'});
-// });
-
-// app.post('/home', (req, res)=>{
-//     res.send({token: '1234'});
-// });
+app.post('/avaliation', (req, res)=>{
+    res.send({token: '1234'});
+});
 
 app.post('/login', async (req, res)=>{
-    //extraindo os dados do formulário para criacao do usuario
     const {email, password} = req.body; 
     
     //Abre o bd (aqui estamos simulando com arquivo)
@@ -61,8 +52,8 @@ app.post('/login', async (req, res)=>{
 
 app.post('/register', async (req, res)=>{
     //extraindo os dados do formulário para criacao do usuario
-    const {email, password} = req.body; 
-    
+    const {username, email, password} = req.body; 
+    //Abre o arquivo que simula o bd
     const jsonPath = path.join(__dirname, '.', 'db', 'usuarios.json');
     const usuariosCadastrados = JSON.parse(fs.readFileSync(jsonPath, { encoding: 'utf8', flag: 'r' }));
 
@@ -74,7 +65,7 @@ app.post('/register', async (req, res)=>{
             return res.status(409).send(`Email ${email} já está cadastrado.`);
         }   
     }
-    //Deu certo. Vamos colocar o usuário no "banco"
+
     //Gerar um id incremental baseado na qt de users
     const id = usuariosCadastrados.length + 1;
 
@@ -84,7 +75,7 @@ app.post('/register', async (req, res)=>{
 
     //Criacao do user
     const User = require('./model/User');
-    const user = new User(id, email, passwordCrypt);
+    const user = new User(id, username, email, passwordCrypt);
 
     //Salva user no "banco"
     usuariosCadastrados.push(user);

@@ -1,32 +1,8 @@
 [
   {
     "id": 1,
+    "username": "Filipe",
     "email": "d2022002088@unifei.edu.br",
-    "password": "$2b$10$oBn2b.yEo/hc.Lk.AXznpemJOMnJaEAv4o9nIFqMKkxHj4CYOBMFa"
-  },
-  {
-    "id": 2,
-    "email": "Carneiro@gmail",
-    "password": "$2b$10$LS5uhhByYQduesgp4LlmcumsHZE6sSnWXNNJDuJoBzdx/aNkBpPHe"
-  },
-  {
-    "id": 3,
-    "email": "a@gmail",
-    "password": "$2b$10$DkBjvLX6YTR7xHifFr4UcOAXsY86uEIq75/sOj2H.aDjJ26I5YSni"
-  },
-  {
-    "id": 4,
-    "email": "b@gmail",
-    "password": "$2b$10$rsh90rkSwl5EjQjx9V5KFezDjtljEN0QEFuCwNXlZMW6Y3QS9ZThG"
-  },
-  {
-    "id": 5,
-    "email": "c@gmail",
-    "password": "$2b$10$VqB5Kyxnm2pkbKZ82D8ME.HBNvVHiz4c.9JO8uAU0hwP2NovkEaGe"
-  },
-  {
-    "id": 6,
-    "email": "d@gmail",
-    "password": "$2b$10$HLACbc6/U1ozUbdEFssTL.sBFub5okqKEtkG1EMA0RXX5mmz4ZSsm"
+    "password": "$2b$10$2CM0AZ7P9XgOaHKxSgYVjeQ5MJjGRPD1apsjyrRQfGsMZ2KYLNZlq"
   }
 ]

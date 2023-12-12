@@ -62,6 +62,7 @@ export default function login(){
 
             <button>LOGIN</button>
             <div>
+                <p className="server-response">{msg}</p>
                 <p>Não tem login? <Link to="http://localhost:5173/register">Registre-se</Link></p>
             </div>
         </fieldset>
