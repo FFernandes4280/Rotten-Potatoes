@@ -28,14 +28,13 @@ app.post('/perfiledit', async (req, res) => {
     //Abre o arquivo que simula o bd
     const jsonPath = path.join(__dirname, '.', 'db', 'usuarios.json');
     const usuariosCadastrados = JSON.parse(fs.readFileSync(jsonPath, { encoding: 'utf8', flag: 'r' }));
-    const id = logged;
-    usuariosCadastrados.splice(logged - 1, 1); 
-    //gerar uma senha cryptografada
+    
+    usuariosCadastrados.splice(usuariosCadastrados.findIndex(user => user.id === logged), 1); 
     const salt = await bcrypt.genSalt(10);
     const passwordCrypt = await bcrypt.hash(password,salt);
     //Criacao do user
     const User = require('./model/User');
-    const user = new User(id, username, email, passwordCrypt);
+    const user = new User(logged, username, email, passwordCrypt);
 
     //Salva user no "banco"
     usuariosCadastrados.push(user);
