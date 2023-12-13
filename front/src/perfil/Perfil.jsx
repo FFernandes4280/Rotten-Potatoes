@@ -3,36 +3,36 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-export default function Perfil() {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
 
+export default function login(){
+  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3003/perfil');
-        const { username, email } = response.data;
-        setUsername(username);
-        setEmail(email);
+        const response = await axios.post('http://localhost:3003/perfil');
+        console.log(response);
+        setEmail(response.data.user.email);
+        setUsername(response.data.user.username);
       } catch (error) {
-        setEmail('Erro ao carregar o email');
-        setUsername('Erro ao carregar o username');
+        console.error('Error fetching profile data:', error);
       }
     };
 
-    fetchData();
-  }, []); // Empty dependency array ensures that this effect runs once after the initial render
+  fetchData();
+}, []);
+  
 
   return (
     <>
       <div className='perfil'>
         <fieldset>
           <legend>User:</legend>
-          <p className='server-response'>{username}</p>
+          <p>{username}</p>
         </fieldset>
         <fieldset>
           <legend>Email:</legend>
-          <p className='server-response'>{email}</p>
+          <p>{email}</p>
         </fieldset>
         <Link to="/perfiledit"><button>ALTERAR DADOS</button></Link>
       </div>

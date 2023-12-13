@@ -3,6 +3,12 @@
     "id": 1,
     "username": "Filipe",
     "email": "d2022002088@unifei.edu.br",
-    "password": "$2b$10$2CM0AZ7P9XgOaHKxSgYVjeQ5MJjGRPD1apsjyrRQfGsMZ2KYLNZlq"
+    "password": "$2b$10$xJmgZi5VFed8cCGSORRjP.XzbqsLzxbl9uG1iy2GgLmS5C1IM5ePS"
+  },
+  {
+    "id": 2,
+    "username": "Anna Julia",
+    "email": "teste@unifei",
+    "password": "$2b$10$nmMmRUpYQqfjXiZvILkaueojb6tcdHPJmLcAPl/r774yGBL8e74ke"
   }
 ]
