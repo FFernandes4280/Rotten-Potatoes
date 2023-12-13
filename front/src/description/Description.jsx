@@ -1,7 +1,10 @@
 import '../style/Description.css'
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export default function Description(){
+    const {nome} = useParams();
+    console.log(nome);
     return(
      <>
         <div>
