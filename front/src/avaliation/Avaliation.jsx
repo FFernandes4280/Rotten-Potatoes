@@ -1,13 +1,50 @@
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+
 import '../style/Avaliation.css'
 
-export default function Avaliation(){
+const Avaliation = () => {
+    const { id } = useParams();
+    const [movieData, setMovieData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+  
+    useEffect(() => {
+      const fetchMovieData = async () => {
+        try {
+          const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=043fe6a0cc6d215f5b63dc8fb46878b2`);
+          if (!response.ok) {
+            throw new Error('Erro ao obter os dados do filme');
+          }
+          const result = await response.json();
+          setMovieData(result);
+          setLoading(false);
+        } catch (error) {
+          console.error('Erro ao obter os dados do filme:', error.message);
+          setError('Erro ao obter dados do filme. Tente novamente mais tarde.');
+          setLoading(false);
+        }
+      };
+      fetchMovieData();
+    }, [id]);
+  
+    if (loading) {
+      return <p>Carregando...</p>;
+    }
+  
+    if (error) {
+      return <p>{error}</p>;
+    }
+  
+    const { title, overview } = movieData;
+  
     return(
         <>
-        <form action="">
+        <form onSubmit={handleSubmit(submit)} noValidate>            
             <div className='corpoava'>
                 <div className='postertitulo'>
-                <img src="https://www.intoxianime.com/wp-content/uploads/2023/08/F4M7DiMbgAAuHUV.jpg" alt="Poster" />
-                <h2>Sousou no frierem</h2>
+                    <img src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`} alt={title} />
+                <h2>{title}</h2>
                 </div>
                 <div className='avaliação'>
                     <label htmlFor="avaliação"></label>
@@ -33,3 +70,5 @@ export default function Avaliation(){
         </>
     )
 }
+
+export default Avaliation;

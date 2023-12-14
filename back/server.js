@@ -7,10 +7,6 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const SECRET_KEY = 'BaldurGatesGanharDeALANWAKE2=MEME'; 
-const USERS_FILE = 'usuarios.json';
-const apiKey = '10a61ce6'; //OMBib
-
 let logged = 0;
 
 //Necessário para extrair os dados de Forms vindos de uma requisição POST
@@ -123,3 +119,33 @@ app.post('/register', async (req, res)=>{
         `Parabéns, conta criada com sucesso.`
         );
 });
+
+app.post('/avaliation', async (req, res) => {
+    console.log('Estou na avaliação');
+    //extraindo os dados do formulário para criacao do usuario
+    const {name, avaliation} = req.body; 
+    //Abre o arquivo que simula o bd
+    const jsonPath = path.join(__dirname, '.', 'db', 'filmes.json');
+    const avaliations = JSON.parse(fs.readFileSync(jsonPath, { encoding: 'utf8', flag: 'r' }));
+    
+    const Filme = require('./model/Filme');
+    const existingFilme = avaliations.find(filme => filme.name === name);
+    if(existingFilme){
+        existingFilme.avaliations.push(avaliation);
+    }else{
+        const filme = new Filme(name, [avaliation]);
+        avaliations.push(filme);
+    }
+    fs.writeFileSync(jsonPath,JSON.stringify(avaliations,null,2));
+    res.send(
+        `Avaliação salva.`
+        );
+    if(existingFilme){
+        return res.json({ existingFilme });
+    }else{
+    return res.json({ filme });
+    }
+
+});
+
+

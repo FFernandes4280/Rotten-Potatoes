@@ -75,7 +75,7 @@ const Description = () => {
             </div>
             <div className='Avaliacao'>
               <h3>
-                <Link to="http://localhost:5173/assessments">10</Link>
+                <Link to="http://localhost:5173/avaliation">10</Link>
               </h3>
             </div>
           </div>
