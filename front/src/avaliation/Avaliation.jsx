@@ -12,7 +12,8 @@ const Avaliation = () => {
     useEffect(() => {
       const fetchMovieData = async () => {
         try {
-          const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=043fe6a0cc6d215f5b63dc8fb46878b2`);
+          const apiUrl = window.location.state.apiUrl;
+          const response = await fetch(``);
           if (!response.ok) {
             throw new Error('Erro ao obter os dados do filme');
           }
