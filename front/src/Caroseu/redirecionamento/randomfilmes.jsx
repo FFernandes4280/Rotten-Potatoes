@@ -1,61 +1,108 @@
-import React, { useState, useEffect } from 'react';
-import ClickableImage from './redirecionamento.jsx';
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 
-const YourComponent = ({genre}) => {
-  let link;
-    if(genre=="37999"){
-      link = `https://api.jikan.moe/v4/anime/37999/recommendations`;
-    }else if(genre=="6"){
-      link= `https://api.jikan.moe/v4/anime/6/recommendations`;
-    }else if(genre=="35120"){
-      link= `https://api.jikan.moe/v4/anime/339/recommendations`;
-    }else if(genre=="21"){
-      link= `https://api.jikan.moe/v4/anime/21/recommendations`;
-    }else if(genre=="5"){
-      link= `https://api.jikan.moe/v4/anime/5/recommendations`;
-    }
-    
+import '../style/Description.css'; // Importe o CSS antigo
 
-  const [data, setData] = useState(null);
+const Description = () => {
+  const { id } = useParams();
+  const [movieData, setMovieData] = useState(null);
+  const [trailerUrl, setTrailerUrl] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchMovieData = async () => {
       try {
-        const response = await fetch(link);
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=043fe6a0cc6d215f5b63dc8fb46878b2`);
         if (!response.ok) {
-          throw new Error('Erro ao obter os dados da API');
+          throw new Error('Erro ao obter os dados do filme');
         }
         const result = await response.json();
-        setData(result);
+        setMovieData(result);
+        setLoading(false);
+        // Obter o trailer do YouTube ao carregar os dados do filme
+        fetchYouTubeTrailer(result.title);
       } catch (error) {
-        console.error('Erro ao obter os dados da API:', error.message);
+        console.error('Erro ao obter os dados do filme:', error.message);
+        setError('Erro ao obter dados do filme. Tente novamente mais tarde.');
+        setLoading(false);
       }
     };
 
-    fetchData();
-  }, [genre]);
+    const fetchYouTubeTrailer = async (movieTitle) => {
+      try {
+        // Substitua 'YOUR_YOUTUBE_API_KEY' pela sua chave de API do YouTube Data API v3
+        const youtubeApiKey = 'AIzaSyBHgGeRmKMA-GX7G8EV147ik6jsvqrQRxo';
+        const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${movieTitle} trailer&key=${youtubeApiKey}`);
+        if (!response.ok) {
+          throw new Error('Erro ao obter o trailer do YouTube');
+        }
+        const result = await response.json();
+        // Verificar se há um item válido na resposta do YouTube
+        const firstItem = result.items[0];
+        if (firstItem && firstItem.id && firstItem.id.videoId) {
+          setTrailerUrl(firstItem.id.videoId);
+        } else {
+          setTrailerUrl(null);
+        }
+      } catch (error) {
+        console.error('Erro ao obter o trailer do YouTube:', error.message);
+        setTrailerUrl(null);
+      }
+    };
 
-  if (!data) {
+    fetchMovieData();
+  }, [id]);
+
+  if (loading) {
     return <p>Carregando...</p>;
   }
 
-  // Escolher aleatoriamente um índice do array de dados
-  const randomIndex = Math.floor(Math.random() * data.data.length);
+  if (error) {
+    return <p>{error}</p>;
+  }
 
-  // Extrair a URL da imagem e o texto alternativo (alt) do item escolhido aleatoriamente
-  const imageUrl = data.data[randomIndex].entry.images.jpg.image_url;
-  const altText = data.data[randomIndex].entry.title;
+  const { title, overview } = movieData;
 
   return (
-    <div>
+    <>
       <div>
-        <ClickableImage
-          imageUrl={imageUrl}
-          alt={altText}
-          linkTo={"http://localhost:5173/description"}
-        />
+        <div className='dados'>
+          <div className='fundo'>
+            <div className='cartaz'>
+              <img src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`} alt={title} />
+              <h2>{title}</h2>
+            </div>
+            <div className='Avaliacao'>
+              <h3>
+                <Link to="http://localhost:5173/assessments">10</Link>
+              </h3>
+            </div>
+          </div>
+          <div className='Sinopse'>
+            <h2>Sinopse:</h2>
+            <p>{overview}</p>
+          </div>
+        </div>
+        <div className='trailer'>
+          <h1>Trailer</h1>
+          {trailerUrl ? (
+            <iframe
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${trailerUrl}`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          ) : (
+            <p>Nenhum trailer disponível para este filme no momento.</p>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default YourComponent;
+export default Description;
