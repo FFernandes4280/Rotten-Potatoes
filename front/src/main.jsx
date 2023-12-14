@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { useParams } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './home/Home.jsx';
 import Assessments from './assessments/Assessments.jsx';
@@ -23,7 +24,7 @@ const App = () => {
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/avaliation" element={<Avaliation />} />
+        <Route path="avaliation/:id" element={<Avaliation />} />
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/perfiledit" element={<Perfiledit />} />
       </Routes>

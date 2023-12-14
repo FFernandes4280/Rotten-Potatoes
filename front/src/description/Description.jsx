@@ -33,6 +33,7 @@ const Description = () => {
       try {
         const youtubeApiKey = 'AIzaSyBHgGeRmKMA-GX7G8EV147ik6jsvqrQRxo';
         const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${movieTitle} trailer&key=${youtubeApiKey}`);
+        console.log(response)
         if (!response.ok) {
           throw new Error('Erro ao obter o trailer do YouTube');
         }
@@ -62,7 +63,8 @@ const Description = () => {
   }
 
   const { title, overview } = movieData;
-  const id_envio_avaliações = id;
+  console.log(id)
+  
 
   return (
     <>
@@ -75,10 +77,7 @@ const Description = () => {
             </div>
             <div className='Avaliacao'>
               <h3>
-                <Link to={{
-                pathname: "http://localhost:5173/avaliation",
-                state: { apiUrl: `https://api.themoviedb.org/3/movie/${id}?api_key=043fe6a0cc6d215f5b63dc8fb46878b2` }
-              }}>10</Link>
+                <Link to={`/avaliation/${id}`}>10</Link>
               </h3>
             </div>
           </div>
