@@ -24,6 +24,8 @@ body{background-color: rgb(40, 39, 39);}
 }
 .cartaz h2{
     text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+    text-align: center;
     margin: 1rem;
 }
 
@@ -55,6 +57,10 @@ body{background-color: rgb(40, 39, 39);}
     font-size: 6rem;
     text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+.Avaliacao h3:hover{
+    transform: scale(1.2);
 }
 .Avaliacao a{
     color: white;
@@ -76,8 +82,9 @@ body{background-color: rgb(40, 39, 39);}
     padding-right: 1rem;
     padding-left: 1rem;
     padding-bottom: 2rem;
-    width: 100%;
-    height: auto;
+    margin-left: 1.6rem;
+    width: 95%;
+    height: 75%;
     font-family: fangsong;
     color: #bdbdbd;
     border-radius: 15px;
@@ -117,7 +124,6 @@ iframe{
     height: 30rem;
     width: 53rem;
 }
-
 .dados{
     display: flex;
 

@@ -31,9 +31,11 @@ const Description = () => {
 
     const fetchYouTubeTrailer = async (movieTitle) => {
       try {
-        const youtubeApiKey = 'AIzaSyBHgGeRmKMA-GX7G8EV147ik6jsvqrQRxo';
+        const youtubeApiKey = 'AIzaSyCPSm-5uGcxq22H0OkaaWFCAfE37dPi1_4';
+        console.log(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${movieTitle} trailer&key=${youtubeApiKey}`)
         const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${movieTitle} trailer&key=${youtubeApiKey}`);
         console.log(response)
+        console.log(movieTitle)
         if (!response.ok) {
           throw new Error('Erro ao obter o trailer do YouTube');
         }
