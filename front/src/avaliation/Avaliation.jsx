@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import '../style/Avaliation.css';
+import axios from 'axios';
 
 const Avaliation = () => {
   const { id } = useParams();
@@ -36,25 +37,14 @@ const Avaliation = () => {
 
     try {
       // Substitua a URL abaixo pela URL do seu endpoint de backend
-      const apiUrl = 'https://seu-backend.com/api/avaliacoes';
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          id_filme: id,
-          texto: text,
-          nota: nota,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Erro ao enviar avaliação para o backend');
-      }
-
-      // Implemente qualquer lógica adicional que você precisar após o envio bem-sucedido
-
+      const apiUrl = 'http://localhost:3003/avaliation';
+      console.log(text, nota);
+      const data = {
+        name: text,
+        avaliation: nota,
+      };
+      const response = await axios.post(apiUrl,data) 
+      console.log(response);
     } catch (error) {
       console.error('Erro ao enviar avaliação para o backend:', error.message);
     }
