@@ -15,3 +15,11 @@
     background-color: rgb(45, 45, 45);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
+
+.carosel img{
+    transition: transform 0.3s ease-in-out;
+}
+.carosel img:hover{
+    transform: scale(1.2);
+}
+
